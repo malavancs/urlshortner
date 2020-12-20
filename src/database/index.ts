@@ -2,6 +2,7 @@ import Sequelize from 'sequelize';
 import config from '../config';
 import { logger } from '../utils/logger';
 import UserModel from '../models/users.model';
+import  UrlModel from '../models/urls.model';
 
 const env = process.env.NODE_ENV || 'development';
 const sequelize = new Sequelize.Sequelize(config[env].database, config[env].username, config[env].password, {
@@ -33,6 +34,7 @@ sequelize
 
 const DB = {
   Users: UserModel(sequelize),
+  Urls: UrlModel(sequelize),
   sequelize, // connection instance (RAW queries)
   Sequelize, // library
 };

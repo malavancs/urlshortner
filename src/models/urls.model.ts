@@ -30,15 +30,15 @@ export default function (sequelize: Sequelize): typeof UrlModel {
         },
         clicks: {
           allowNull: true,
-          type: DataTypes.NUMBER
+          type: DataTypes.INTEGER
         },
         userId: {
           allowNull: false,
-          type: DataTypes.NUMBER
+          type: DataTypes.INTEGER
         }
       },
       {
-        tableName: 'users',
+        tableName: 'url',
         sequelize,
       },
     );

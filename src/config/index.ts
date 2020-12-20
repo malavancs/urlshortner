@@ -11,7 +11,7 @@ const dbConfig = {
     password: 'password',
     database: 'sequelize',
     host: 'localhost',
-    dialect: 'mysql',
+    dialect: 'mysql', 
   },
   production: {
     username: process.env.MYSQL_USER,

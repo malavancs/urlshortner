@@ -1,7 +1,7 @@
 const dbConfig = {
   development: {
     username: 'root',
-    password: 'password',
+    password: '12345678',
     database: 'sequelize',
     host: 'localhost',
     dialect: 'mysql',

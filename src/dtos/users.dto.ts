@@ -9,4 +9,5 @@ export class CreateUserDto {
 
   @IsString()
   public name: string;
+
 }

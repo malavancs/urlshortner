@@ -9,7 +9,7 @@ class UrlController {
     public getAllUrls = async (req: Request, res: Response, next: NextFunction) => {
         try {
             console.log(req);
-            const user = req.user;
+            const user = req['user'];
             const getAllUsers: Url[] = await this.urlService.getUrlsByUser(user);
             res.status(200).json({ data: getAllUsers });
         } catch (error) {
@@ -30,7 +30,7 @@ class UrlController {
     public generateShortUrl = async (req: Request, res: Response, next: NextFunction) => {
         try{
             const longUrl = req.body.longUrl;
-            const user = req.user;
+            const user = req['user'];
             console.log(user);
             const shortUrl = await this.urlService.generateShortUrl(longUrl,user);
             res.status(200).json({shortUrl});

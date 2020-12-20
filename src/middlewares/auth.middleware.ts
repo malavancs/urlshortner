@@ -7,7 +7,7 @@ import DB from '../database';
 const authMiddleware = async (req: RequestWithUser, res: Response, next: NextFunction) => {
   try {
     const cookies = req.headers['token'];
-    const token: string = `${req.headers.token}`;
+    const token: string = `${req.headers['token']}`;
     console.log(token);
     if (token) {
       const secret : string = process.env.JWT_SECRET;

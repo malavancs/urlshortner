@@ -16,6 +16,8 @@ class UrlService {
                 shortUrl: shortUrl
             }
         });
+        longUrl.clicks = longUrl.clicks+1;
+        longUrl.save();
         return longUrl.longUrl;
     }
     public async generateShortUrl(longUrl: string,user: any): Promise<any> {

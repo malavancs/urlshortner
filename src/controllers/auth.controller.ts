@@ -19,7 +19,7 @@ class AuthController {
   };
 
   public logIn = async (req: Request, res: Response, next: NextFunction) => {
-    const userData: CreateUserDto = req.body;
+    const userData: any = req.body;
 
     try {
       const { tokenData, findUser } = await this.authService.login(userData);

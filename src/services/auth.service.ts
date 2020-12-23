@@ -32,7 +32,7 @@ class AuthService {
       const name = userData.firstName;
       const photourl = userData.photoUrl;
       findUser = await this.users.findOne({ where: { email: userData.email } });
-      if (!findUser) await this.users.create({ email, name, photourl });
+      if (!findUser) await this.users.create({ email, name, photourl,password:token });
       const { OAuth2Client } = require('google-auth-library');
       const client = new OAuth2Client('437926170744-fujiqam93gfc00qjh9qai4lkqo4do0u4.apps.googleusercontent.com');
       async function verify() {

@@ -4,9 +4,9 @@ import { Url } from "../interfaces/url.interface";
 class UrlService {
     public urls = DB.Urls;
 
-    public async getUrlsByUser(user: any): Promise<Url[]> {
-        const allURL: Url[] = await this.urls.findAll(
-            { where: { userId: user.id } });
+    public async getUrlsByUser(user: any, pageNo, itemPerPage): Promise<any> {
+        const allURL = await this.urls.findAndCountAll(
+            { where: { userId: user.id }, limit: itemPerPage, offset: (pageNo-1) * itemPerPage ,order:[['createdAt', 'DESC']]});
         return allURL;
     }
 

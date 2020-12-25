@@ -10,7 +10,9 @@ class UrlController {
         try {
             console.log(req);
             const user = req['user'];
-            const getAllUsers: Url[] = await this.urlService.getUrlsByUser(user);
+            const pageNo = Number.parseInt(req.query.pageNo.toString());
+            const itemPerPage = Number.parseInt(req.query.itemPerPage.toString());
+            const getAllUsers = await this.urlService.getUrlsByUser(user,pageNo,itemPerPage);
             res.status(200).json({ data: getAllUsers });
         } catch (error) {
             next(error);
